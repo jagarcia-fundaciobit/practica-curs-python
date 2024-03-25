@@ -1,0 +1,17 @@
+name: Pre-commit hooks
+run-name: Pre-commit hooks
+on: [pull_request]
+jobs:
+  Run_tests_hooks:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Feim el checkout"
+      - uses: actions/checkout@v4
+      - run: echo "Instal·lam Python"
+      - run: sudo apt-get install python3
+      - run: echo "InstaL·lam la funcionalitat de pre-commit"
+      - run: pip install pre-commit
+      - run: echo "Feim el pre-commit"
+      - run: pre-commit install -hook-type pre-commit
+      - run: echo "Executam el pre-commit sobre tots els fitxers"
+      - run: pre-commit run --all-files
