@@ -8,10 +8,12 @@ jobs:
       - run: echo "Feim el checkout"
       - uses: actions/checkout@v4
       - run: echo "Instal·lam Python"
-      - run: sudo apt-get install python3
-      - run: echo "InstaL·lam la funcionalitat de pre-commit"
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+      - run: echo "Instal·lam la funcionalitat de pre-commit"
       - run: pip install pre-commit
       - run: echo "Feim el pre-commit"
-      - run: pre-commit install -hook-type pre-commit
+      - run: pre-commit install --hook-type pre-commit
       - run: echo "Executam el pre-commit sobre tots els fitxers"
       - run: pre-commit run --all-files
