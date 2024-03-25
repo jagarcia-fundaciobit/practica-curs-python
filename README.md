@@ -1,1 +1,0 @@
-# practica-curs-python
